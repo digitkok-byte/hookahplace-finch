@@ -35,3 +35,8 @@ body {
   background: rgba(139, 26, 26, 0.4);
   color: var(--text);
 }
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.4; transform: translateY(0); }
+  50% { opacity: 0.85; transform: translateY(3px); }
+}

@@ -263,13 +263,34 @@ export default function ScrollHero() {
 function ScrollHint({ visible }: { visible: boolean }) {
   return (
     <div
-      className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-2 transition-opacity duration-700"
+      className="absolute right-5 md:right-12 top-1/2 -translate-y-1/2 z-30 flex flex-col items-center gap-3 transition-opacity duration-700"
       style={{ opacity: visible ? 1 : 0 }}
     >
-      <span className="text-[9px] tracking-[0.5em] text-white/25 font-light" style={{ fontFamily: "Inter, sans-serif" }}>
+      {/* Arrow up */}
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={ACCENT} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+        className="animate-[scrollPulse_1.5s_ease-in-out_infinite]" style={{ opacity: 0.7 }}>
+        <path d="M18 15l-6-6-6 6" />
+      </svg>
+
+      {/* Line */}
+      <div className="w-px h-10" style={{ background: ACCENT, opacity: 0.4 }} />
+
+      {/* SCROLL text */}
+      <span
+        className={`${heading} text-[14px] tracking-[0.2em] animate-[scrollPulse_1.5s_ease-in-out_infinite]`}
+        style={{ color: ACCENT, opacity: 0.7, writingMode: "vertical-lr" }}
+      >
         SCROLL
       </span>
-      <div className="w-px h-8 bg-white/20 animate-pulse" />
+
+      {/* Line */}
+      <div className="w-px h-10" style={{ background: ACCENT, opacity: 0.4 }} />
+
+      {/* Arrow down */}
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={ACCENT} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+        className="animate-[scrollPulse_1.5s_ease-in-out_infinite_0.3s]" style={{ opacity: 0.7 }}>
+        <path d="M6 9l6 6 6-6" />
+      </svg>
     </div>
   );
 }
