@@ -267,28 +267,28 @@ function ScrollHint({ visible }: { visible: boolean }) {
       style={{ opacity: visible ? 1 : 0 }}
     >
       {/* Arrow up */}
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={ACCENT} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-        className="animate-[scrollPulse_1.5s_ease-in-out_infinite]" style={{ opacity: 0.7 }}>
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke={ACCENT} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
+        className="animate-[scrollPulse_1.5s_ease-in-out_infinite]" style={{ opacity: 0.8 }}>
         <path d="M18 15l-6-6-6 6" />
       </svg>
 
       {/* Line */}
-      <div className="w-px h-10" style={{ background: ACCENT, opacity: 0.4 }} />
+      <div className="w-px h-14" style={{ background: ACCENT, opacity: 0.5 }} />
 
       {/* SCROLL text */}
       <span
-        className={`${heading} text-[14px] tracking-[0.2em] animate-[scrollPulse_1.5s_ease-in-out_infinite]`}
-        style={{ color: ACCENT, opacity: 0.7, writingMode: "vertical-lr" }}
+        className={`${heading} text-[20px] tracking-[0.25em] animate-[scrollPulse_1.5s_ease-in-out_infinite]`}
+        style={{ color: ACCENT, opacity: 0.8, writingMode: "vertical-lr" }}
       >
         SCROLL
       </span>
 
       {/* Line */}
-      <div className="w-px h-10" style={{ background: ACCENT, opacity: 0.4 }} />
+      <div className="w-px h-14" style={{ background: ACCENT, opacity: 0.5 }} />
 
       {/* Arrow down */}
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={ACCENT} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-        className="animate-[scrollPulse_1.5s_ease-in-out_infinite_0.3s]" style={{ opacity: 0.7 }}>
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke={ACCENT} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
+        className="animate-[scrollPulse_1.5s_ease-in-out_infinite_0.3s]" style={{ opacity: 0.8 }}>
         <path d="M6 9l6 6 6-6" />
       </svg>
     </div>
