@@ -13,13 +13,16 @@ const TOP_LINES = [
 ];
 
 // Bottom-right: details accumulate upward
-const BOTTOM_LINES = [
+// Typography scale: accent 36/48 → medium 20/26 → detail 12/13 → cta 16/20
+// Grouped with spacing: section2 group → divider → section3 group → cta
+const BOTTOM_LINES: { text: string; trigger: number; style: string; mb?: string }[] = [
   { text: "ПРЕМИАЛЬНЫЕ КАЛЬЯНЫ", trigger: 0.38, style: "medium" },
-  { text: "АВТОРСКИЕ НАПИТКИ", trigger: 0.44, style: "medium" },
-  { text: "АТМОСФЕРА", trigger: 0.50, style: "accent" },
-  { text: "ЮГ МОСКВЫ", trigger: 0.68, style: "medium" },
-  { text: "КУСТАНАЙСКАЯ 10А", trigger: 0.74, style: "small" },
-  { text: "ЕЖЕДНЕВНО С 13:00", trigger: 0.80, style: "small" },
+  { text: "АВТОРСКИЕ НАПИТКИ", trigger: 0.44, style: "medium", mb: "2px" },
+  { text: "АТМОСФЕРА", trigger: 0.50, style: "accent", mb: "20px" },
+  // — visual break between groups —
+  { text: "ЮГ МОСКВЫ", trigger: 0.68, style: "location" },
+  { text: "КУСТАНАЙСКАЯ 10А", trigger: 0.74, style: "detail", mb: "6px" },
+  { text: "ЕЖЕДНЕВНО С 13:00", trigger: 0.80, style: "detail", mb: "14px" },
   { text: "ЗАБРОНИРОВАТЬ →", trigger: 0.86, style: "cta" },
 ];
 
@@ -185,7 +188,7 @@ export default function ScrollHero() {
         </div>
 
         {/* ── BOTTOM RIGHT: Details accumulating upward ── */}
-        <div className="absolute bottom-0 right-0 z-20 pointer-events-none px-5 md:px-12 pb-[260px] md:pb-[280px] flex flex-col items-end gap-1">
+        <div className="absolute bottom-0 right-0 z-20 pointer-events-none px-5 md:px-12 pb-[200px] md:pb-[220px] flex flex-col items-end">
           {/* Render in reverse so newest items push up from bottom */}
           {[...BOTTOM_LINES].reverse().map((line, i) => {
             const appeared = progress >= line.trigger;
@@ -197,44 +200,62 @@ export default function ScrollHero() {
                 className="text-right"
                 style={{
                   opacity: entry,
-                  transform: `translateY(${lerp(50, 0, entry)}px)`,
-                  transition: "transform 0.2s ease-out",
+                  transform: `translateY(${lerp(40, 0, entry)}px)`,
+                  transition: "transform 0.25s ease-out",
+                  marginBottom: line.mb || "0",
                   pointerEvents: line.style === "cta" && appeared ? "auto" : "none",
                 }}
               >
+                {/* Medium — services (scale: 20/26px) */}
                 {line.style === "medium" && (
                   <p
-                    className={`${heading} text-[22px] md:text-[30px] leading-[1.1]`}
-                    style={{ color: "rgba(255,255,255,0.75)", letterSpacing: "2px" }}
+                    className={`${heading} text-[20px] md:text-[26px] leading-[1.2]`}
+                    style={{ color: "rgba(255,255,255,0.6)", letterSpacing: "1.5px" }}
                   >
                     {line.text}
                   </p>
                 )}
+
+                {/* Accent — section title (scale: 36/48px, 1.8x of medium) */}
                 {line.style === "accent" && (
                   <p
-                    className={`${heading} text-[32px] md:text-[44px] leading-[1]`}
+                    className={`${heading} text-[36px] md:text-[48px] leading-[1]`}
                     style={{
                       color: ACCENT,
-                      letterSpacing: "2px",
-                      textShadow: "0 0 40px rgba(180,0,0,0.3)",
+                      letterSpacing: "3px",
+                      textShadow: "0 0 40px rgba(180,0,0,0.25)",
                     }}
                   >
                     {line.text}
                   </p>
                 )}
-                {line.style === "small" && (
+
+                {/* Location — place name (scale: 22/28px) */}
+                {line.style === "location" && (
                   <p
-                    className="text-[10px] md:text-xs tracking-[0.4em] font-medium uppercase"
-                    style={{ color: "rgba(255,255,255,0.4)", fontFamily: "Inter, sans-serif" }}
+                    className={`${heading} text-[22px] md:text-[28px] leading-[1.15]`}
+                    style={{ color: "rgba(255,255,255,0.8)", letterSpacing: "2px" }}
                   >
                     {line.text}
                   </p>
                 )}
+
+                {/* Detail — address, hours (scale: 12/13px Inter) */}
+                {line.style === "detail" && (
+                  <p
+                    className="text-[12px] md:text-[13px] tracking-[0.25em] font-normal"
+                    style={{ color: "rgba(255,255,255,0.4)", fontFamily: "Inter, sans-serif", lineHeight: "1.6" }}
+                  >
+                    {line.text}
+                  </p>
+                )}
+
+                {/* CTA — booking link (scale: 16/20px) */}
                 {line.style === "cta" && (
                   <a
                     href="#booking"
-                    className={`${heading} inline-block mt-2 text-[18px] md:text-[22px] tracking-wider transition-colors hover:text-white`}
-                    style={{ color: ACCENT, letterSpacing: "2px" }}
+                    className={`${heading} inline-block text-[16px] md:text-[20px] tracking-wider border-b transition-all hover:text-white hover:border-white`}
+                    style={{ color: ACCENT, letterSpacing: "2px", borderColor: "rgba(180,0,0,0.4)", paddingBottom: "2px" }}
                   >
                     {line.text}
                   </a>
