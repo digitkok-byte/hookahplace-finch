@@ -1,19 +1,49 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import ScrollHero from "@/components/ScrollHero";
 
 const ACCENT = "#B40000";
 const MUTED = "#6C757D";
 const heading = "font-['Bebas_Neue',sans-serif]";
 
+function FadeIn({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
+      { threshold: 0.1 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      className={className}
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translateY(0)" : "translateY(40px)",
+        transition: "opacity 0.8s ease-out, transform 0.8s ease-out",
+      }}
+    >
+      {children}
+    </div>
+  );
+}
+
 export default function Home() {
   return (
     <main>
       <ScrollHero />
-      <Contacts />
-      <Booking />
-      <Footer />
+      <FadeIn><Contacts /></FadeIn>
+      <FadeIn><Booking /></FadeIn>
+      <FadeIn><Footer /></FadeIn>
     </main>
   );
 }
