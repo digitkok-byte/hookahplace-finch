@@ -188,7 +188,7 @@ export default function ScrollHero() {
         </div>
 
         {/* ── BOTTOM RIGHT: Details accumulating upward ── */}
-        <div className="absolute right-0 bottom-0 z-20 pointer-events-none px-5 md:px-12 pb-6 md:pb-10 flex flex-col items-end">
+        <div className="absolute right-0 top-1/2 z-20 pointer-events-none px-5 md:px-12 flex flex-col items-end" style={{ transform: "translateY(-20%)" }}>
           {/* Render in reverse so newest items push up from bottom */}
           {[...BOTTOM_LINES].reverse().map((line, i) => {
             const appeared = progress >= line.trigger;
