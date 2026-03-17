@@ -125,10 +125,11 @@ export default function ScrollHero() {
           />
         ))}
 
-        {/* Gradient overlays for both corners */}
+        {/* Gradient overlays for text readability — fade out on 3rd section */}
         <div
-          className="absolute inset-0 z-10"
+          className="absolute inset-0 z-10 transition-opacity duration-300"
           style={{
+            opacity: progress < 0.6 ? 1 : Math.max(0, 1 - (progress - 0.6) / 0.1),
             background: [
               "linear-gradient(to bottom right, rgba(10,10,10,0.7) 0%, transparent 40%)",
               "linear-gradient(to top left, rgba(10,10,10,0.7) 0%, transparent 40%)",
