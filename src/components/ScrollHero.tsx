@@ -285,7 +285,7 @@ export default function ScrollHero() {
 function ScrollHint({ visible }: { visible: boolean }) {
   return (
     <div
-      className="absolute right-5 md:right-12 top-1/2 -translate-y-1/2 z-30 flex flex-col items-center gap-3 transition-opacity duration-700"
+      className="absolute right-5 md:right-12 top-[60%] -translate-y-1/2 z-30 flex flex-col items-center gap-3 transition-opacity duration-700"
       style={{ opacity: visible ? 1 : 0 }}
     >
       {/* Arrow up */}
@@ -316,10 +316,10 @@ function ScrollHint({ visible }: { visible: boolean }) {
         <path d="M6 9l6 6 6-6" />
       </svg>
 
-      {/* "КРУТИ ВНИЗ" label */}
+      {/* "КРУТИ ВНИЗ" label — horizontal */}
       <span
         className={`${heading} text-[28px] font-bold tracking-[0.2em] animate-[scrollPulse_1.5s_ease-in-out_infinite]`}
-        style={{ color: ACCENT, opacity: 0.9, writingMode: "vertical-lr", marginTop: "10px", textShadow: "0 0 20px rgba(180,0,0,0.6), 0 0 40px rgba(180,0,0,0.3)" }}
+        style={{ color: ACCENT, opacity: 0.9, marginTop: "10px", textShadow: "0 0 20px rgba(180,0,0,0.6), 0 0 40px rgba(180,0,0,0.3)", whiteSpace: "nowrap" }}
       >
         КРУТИ ВНИЗ
       </span>
