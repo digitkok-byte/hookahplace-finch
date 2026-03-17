@@ -188,7 +188,7 @@ export default function ScrollHero() {
         </div>
 
         {/* ── BOTTOM RIGHT: Details accumulating upward ── */}
-        <div className="absolute right-0 top-1/2 z-20 pointer-events-none px-5 md:px-12 flex flex-col items-end" style={{ transform: "translateY(-20%)" }}>
+        <div className="absolute right-0 top-1/2 z-20 pointer-events-none px-5 md:px-12 flex flex-col items-end" style={{ transform: "translateY(30%)" }}>
           {/* Render in reverse so newest items push up from bottom */}
           {[...BOTTOM_LINES].reverse().map((line, i) => {
             const appeared = progress >= line.trigger;
@@ -216,14 +216,14 @@ export default function ScrollHero() {
                   </p>
                 )}
 
-                {/* Accent — section title (scale: 36/48px, 1.8x of medium) */}
+                {/* Accent — section title (scale: 42/56px, bold) */}
                 {line.style === "accent" && (
                   <p
-                    className={`${heading} text-[36px] md:text-[48px] leading-[1]`}
+                    className={`${heading} text-[42px] md:text-[56px] leading-[1]`}
                     style={{
-                      color: ACCENT,
+                      color: "#FF2020",
                       letterSpacing: "3px",
-                      textShadow: "0 0 40px rgba(180,0,0,0.25)",
+                      textShadow: "0 0 50px rgba(255,32,32,0.4), 0 0 20px rgba(255,32,32,0.2)",
                     }}
                   >
                     {line.text}
@@ -250,12 +250,12 @@ export default function ScrollHero() {
                   </p>
                 )}
 
-                {/* CTA — booking link (scale: 16/20px) */}
+                {/* CTA — booking link (scale: 22/28px, brighter) */}
                 {line.style === "cta" && (
                   <a
                     href="#booking"
-                    className={`${heading} inline-block text-[16px] md:text-[20px] tracking-wider border-b transition-all hover:text-white hover:border-white`}
-                    style={{ color: ACCENT, letterSpacing: "2px", borderColor: "rgba(180,0,0,0.4)", paddingBottom: "2px" }}
+                    className={`${heading} inline-block text-[22px] md:text-[28px] tracking-wider border-b-2 transition-all hover:text-white hover:border-white`}
+                    style={{ color: "#FF2020", letterSpacing: "2px", borderColor: "rgba(255,32,32,0.6)", paddingBottom: "3px" }}
                   >
                     {line.text}
                   </a>
