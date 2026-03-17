@@ -23,7 +23,7 @@ const BOTTOM_LINES: { text: string; trigger: number; style: string; mb?: string 
   { text: "ЮГ МОСКВЫ", trigger: 0.68, style: "location" },
   { text: "КУСТАНАЙСКАЯ 10А", trigger: 0.74, style: "detail", mb: "6px" },
   { text: "ЕЖЕДНЕВНО С 13:00", trigger: 0.80, style: "detail", mb: "14px" },
-  { text: "ЗАБРОНИРОВАТЬ →", trigger: 0.86, style: "cta" },
+  { text: "ЗАБРОНИРОВАТЬ", trigger: 0.86, style: "cta" },
 ];
 
 export default function ScrollHero() {
@@ -255,8 +255,8 @@ export default function ScrollHero() {
                 {line.style === "cta" && (
                   <a
                     href="#booking"
-                    className={`${heading} inline-block text-[22px] md:text-[28px] tracking-wider border-b-2 transition-all hover:text-white hover:border-white`}
-                    style={{ color: ACCENT, letterSpacing: "2px", borderColor: "rgba(180,0,0,0.5)", paddingBottom: "3px" }}
+                    className={`${heading} inline-block text-[22px] md:text-[28px] tracking-wider transition-all hover:text-white`}
+                    style={{ color: ACCENT, letterSpacing: "2px" }}
                   >
                     {line.text}
                   </a>
