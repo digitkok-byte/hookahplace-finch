@@ -268,12 +268,6 @@ export default function ScrollHero() {
         {/* Scroll hint */}
         <ScrollHint visible={progress < 0.02} />
 
-        {/* Fade to black at the very end */}
-        <div
-          className="absolute inset-0 bg-[#0A0A0A] z-40 pointer-events-none transition-opacity duration-100"
-          style={{ opacity: progress > 0.9 ? clamp01((progress - 0.9) / 0.1) : 0 }}
-        />
-
         {/* Progress line */}
         <div
           className="absolute bottom-0 left-0 h-px z-30"
