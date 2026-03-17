@@ -313,6 +313,14 @@ function ScrollHint({ visible }: { visible: boolean }) {
         className="animate-[scrollPulse_1.5s_ease-in-out_infinite_0.3s]" style={{ opacity: 0.8 }}>
         <path d="M6 9l6 6 6-6" />
       </svg>
+
+      {/* "КРУТИ ВНИЗ" label */}
+      <span
+        className={`${heading} text-[14px] tracking-[0.2em] animate-[scrollPulse_1.5s_ease-in-out_infinite]`}
+        style={{ color: ACCENT, opacity: 0.8, writingMode: "vertical-lr", marginTop: "8px" }}
+      >
+        КРУТИ ВНИЗ
+      </span>
     </div>
   );
 }
