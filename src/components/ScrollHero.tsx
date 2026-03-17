@@ -289,35 +289,37 @@ function ScrollHint({ visible }: { visible: boolean }) {
       style={{ opacity: visible ? 1 : 0 }}
     >
       {/* Arrow up */}
-      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke={ACCENT} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
-        className="animate-[scrollPulse_1.5s_ease-in-out_infinite]" style={{ opacity: 0.8 }}>
+      <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke={ACCENT} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"
+        className="animate-[scrollPulse_1.5s_ease-in-out_infinite]"
+        style={{ opacity: 0.9, filter: "drop-shadow(0 0 12px rgba(180,0,0,0.6))" }}>
         <path d="M18 15l-6-6-6 6" />
       </svg>
 
       {/* Line */}
-      <div className="w-px h-14" style={{ background: ACCENT, opacity: 0.5 }} />
+      <div className="w-0.5 h-16" style={{ background: ACCENT, opacity: 0.6, boxShadow: "0 0 8px rgba(180,0,0,0.4)" }} />
 
       {/* SCROLL text */}
       <span
-        className={`${heading} text-[20px] tracking-[0.25em] animate-[scrollPulse_1.5s_ease-in-out_infinite]`}
-        style={{ color: ACCENT, opacity: 0.8, writingMode: "vertical-lr" }}
+        className={`${heading} text-[28px] font-bold tracking-[0.3em] animate-[scrollPulse_1.5s_ease-in-out_infinite]`}
+        style={{ color: ACCENT, opacity: 0.9, writingMode: "vertical-lr", textShadow: "0 0 20px rgba(180,0,0,0.6), 0 0 40px rgba(180,0,0,0.3)" }}
       >
         SCROLL
       </span>
 
       {/* Line */}
-      <div className="w-px h-14" style={{ background: ACCENT, opacity: 0.5 }} />
+      <div className="w-0.5 h-16" style={{ background: ACCENT, opacity: 0.6, boxShadow: "0 0 8px rgba(180,0,0,0.4)" }} />
 
       {/* Arrow down */}
-      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke={ACCENT} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
-        className="animate-[scrollPulse_1.5s_ease-in-out_infinite_0.3s]" style={{ opacity: 0.8 }}>
+      <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke={ACCENT} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"
+        className="animate-[scrollPulse_1.5s_ease-in-out_infinite_0.3s]"
+        style={{ opacity: 0.9, filter: "drop-shadow(0 0 12px rgba(180,0,0,0.6))" }}>
         <path d="M6 9l6 6 6-6" />
       </svg>
 
       {/* "КРУТИ ВНИЗ" label */}
       <span
-        className={`${heading} text-[14px] tracking-[0.2em] animate-[scrollPulse_1.5s_ease-in-out_infinite]`}
-        style={{ color: ACCENT, opacity: 0.8, writingMode: "vertical-lr", marginTop: "8px" }}
+        className={`${heading} text-[28px] font-bold tracking-[0.2em] animate-[scrollPulse_1.5s_ease-in-out_infinite]`}
+        style={{ color: ACCENT, opacity: 0.9, writingMode: "vertical-lr", marginTop: "10px", textShadow: "0 0 20px rgba(180,0,0,0.6), 0 0 40px rgba(180,0,0,0.3)" }}
       >
         КРУТИ ВНИЗ
       </span>
