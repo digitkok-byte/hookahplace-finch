@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const ACCENT = "#B40000";
+const ACCENT = "#8B2020";
 const heading = "font-['Bebas_Neue',sans-serif]";
 
 // Top-left: brand (H1, H2, tagline)
@@ -189,7 +189,7 @@ export default function ScrollHero() {
         </div>
 
         {/* ── BOTTOM RIGHT: Details accumulating upward ── */}
-        <div className="absolute right-0 top-1/2 z-20 pointer-events-none px-5 md:px-12 flex flex-col items-end" style={{ transform: "translateY(30%)" }}>
+        <div className="absolute right-0 top-1/2 z-20 pointer-events-none px-5 md:px-12 flex flex-col items-end" style={{ transform: "translateY(60%)" }}>
           {/* Render in reverse so newest items push up from bottom */}
           {[...BOTTOM_LINES].reverse().map((line, i) => {
             const appeared = progress >= line.trigger;

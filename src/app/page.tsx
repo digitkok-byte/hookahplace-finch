@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import ScrollHero from "@/components/ScrollHero";
 
-const ACCENT = "#B40000";
+const ACCENT = "#8B2020";
 const MUTED = "#6C757D";
 const heading = "font-['Bebas_Neue',sans-serif]";
 
