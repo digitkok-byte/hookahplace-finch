@@ -285,7 +285,7 @@ export default function ScrollHero() {
 function ScrollHint({ visible }: { visible: boolean }) {
   return (
     <div
-      className="absolute right-2 md:right-6 top-[60%] -translate-y-1/2 z-30 flex flex-col items-center gap-3 transition-opacity duration-700"
+      className="absolute right-0 md:right-1 top-[60%] -translate-y-1/2 z-30 flex flex-col items-center gap-3 transition-opacity duration-700"
       style={{ opacity: visible ? 1 : 0 }}
     >
       {/* Arrow up */}
